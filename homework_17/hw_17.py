@@ -11,7 +11,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 def test_check_input_and_scroll():
     # in chrome_driver_path should be your XPath to chromedriver!!!
-    chrome_driver_path = Chrome("C:/Users/Admin/PycharmProjects/Voitiuk-AQA-Selenium-Python/drivers/chromedriver.exe")
+    chrome_driver_path = Chrome("../drivers/chromedriver.exe")
     web_driver_wait = WebDriverWait(chrome_driver_path, 5)
 
     search_input_field_locator = "//input[@placeholder='Что вы ищете?']"
