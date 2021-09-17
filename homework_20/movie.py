@@ -32,9 +32,11 @@ class Movie:
         collection = tree.getroot()
         movies = []
         for movie in collection.iter("movie"):
-            movies.append(cls(movie.get("title"), "format_", "year", "rating", "description", "category"))
+            for child in movie.findall("*"):
+                movies.append(child.text)
         return movies
 
 
 if __name__ == '__main__':
     movies_ = Movie.from_xml("market.xml")
+    print(movies_)
