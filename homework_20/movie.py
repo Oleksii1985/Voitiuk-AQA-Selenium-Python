@@ -14,29 +14,32 @@ class Movie:
         self,
         title: str,
         format_: str,
-        year: str,
+        year: int,
         rating: str,
-        description: str,
-        category: str,
+        # description: str,
+        # category: str,
     ):
         self.title = title
         self.format_ = format_
         self.year = year
         self.rating = rating
-        self.description = description
-        self.category = category
+        # self.description = description
+        # self.category = category
 
     @classmethod
     def from_xml(cls, path: str) -> List[Movie]:
         tree = ElementTree.parse(path)
         collection = tree.getroot()
         movies = []
-        for movie in collection.iter("movie"):
-            for child in movie.findall("*"):
-                movies.append(child.text)
-        return movies
+        total_ = []
+        for category in collection:
+            for decade in category:
+                for movie in decade.iter("movie"):
+                    movies.append(movie)
+        for elem in movies:
+            total_.append(cls(*elem))
+        return total_
 
 
 if __name__ == '__main__':
     movies_ = Movie.from_xml("market.xml")
-    print(movies_)
