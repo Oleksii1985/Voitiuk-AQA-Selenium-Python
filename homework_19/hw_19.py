@@ -5,7 +5,7 @@
 
 
 def test_save_and_return_cookies(dashboard):
-    print(dashboard.save_and_return_cookies())
+    print(dashboard.cookies.save_and_return_cookies())
 
 
 """
@@ -15,4 +15,4 @@ LocalStorage класс должен инстанцироваться в баз�
 
 
 def test_local_storage(dashboard):
-    print(dashboard.save_and_return_local_storage())
+    print(dashboard.local_storage.save_and_return_local_storage())
